@@ -8,7 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "ua.nure.mykytchuk.ml.lw1")
 public class Lw1Application {
 
-    public static void main(String[] args) {
+    public static void main(
+            String[] args
+    ) {
         SpringApplication.run(Lw1Application.class, args);
     }
 }

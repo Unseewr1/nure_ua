@@ -11,7 +11,9 @@ public interface TaskSolver {
 
     void solve();
 
-    default void separate(final @NonNull Logger log) {
+    default void separate(
+            final @NonNull Logger log
+    ) {
         log.info(TOTAL_SEPARATOR);
     }
 }

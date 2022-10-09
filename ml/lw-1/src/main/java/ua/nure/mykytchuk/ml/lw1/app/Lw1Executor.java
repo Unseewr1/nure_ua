@@ -24,7 +24,9 @@ public class Lw1Executor implements CommandLineRunner {
 
 
     @Override
-    public void run(String[] args) {
+    public void run(
+            String[] args
+    ) {
         Stream.of(task1Solver, task2Solver, task3Solver, task4Solver)
                 .forEach(TaskSolver::solve);
     }

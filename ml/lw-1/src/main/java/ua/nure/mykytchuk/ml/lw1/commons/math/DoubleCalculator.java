@@ -8,7 +8,10 @@ import java.lang.reflect.Field;
 public interface DoubleCalculator {
 
     @SuppressWarnings("all")
-    static <E> double getDoubleValue(@NonNull Field field, E object) {
+    static <E> double getDoubleValue(
+            final @NonNull Field field,
+            final @NonNull E object
+    ) {
         boolean accessibility = field.isAccessible();
         try {
             field.setAccessible(true);

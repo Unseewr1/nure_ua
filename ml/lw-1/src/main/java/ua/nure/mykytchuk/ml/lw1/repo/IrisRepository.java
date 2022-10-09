@@ -23,15 +23,16 @@ import java.util.stream.IntStream;
 public class IrisRepository {
 
     private final String irisDataFilename;
-
-    private final @NonNull CsvSchemasContainer csvSchemasContainer;
+    private final CsvSchemasContainer csvSchemasContainer;
 
     private final @NonNull List<Iris> irises;
 
 
     @Autowired
-    public IrisRepository(@Value("${iris.data.filename}") String irisDataFilename,
-                          CsvSchemasContainer csvSchemasContainer) {
+    public IrisRepository(
+            @Value("${iris.data.filename}") String irisDataFilename,
+            CsvSchemasContainer csvSchemasContainer
+    ) {
         this.irisDataFilename = irisDataFilename;
         this.csvSchemasContainer = csvSchemasContainer;
         try (MappingIterator<Iris> iterator = getIterator()) {
@@ -42,7 +43,9 @@ public class IrisRepository {
     }
 
 
-    public @NonNull Iris getById(int id) {
+    public @NonNull Iris getById(
+            int id
+    ) {
         try {
             return irises.get(id);
         } catch (IndexOutOfBoundsException e) {

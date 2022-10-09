@@ -20,7 +20,10 @@ public class DoubleDeserializer extends StdDeserializer<Double> {
 
 
     @Override
-    public Double deserialize(JsonParser jsonParser, DeserializationContext context) throws IOException {
+    public Double deserialize(
+            JsonParser jsonParser,
+            DeserializationContext context
+    ) throws IOException {
         return Double.valueOf(context.readValue(jsonParser, String.class));
     }
 }

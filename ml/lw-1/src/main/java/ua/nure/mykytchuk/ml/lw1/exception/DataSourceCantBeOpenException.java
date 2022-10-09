@@ -1,3 +1,4 @@
 package ua.nure.mykytchuk.ml.lw1.exception;
 
-public class DataSourceCantBeOpenException extends Lw1Exception {}
+public class DataSourceCantBeOpenException
+        extends Lw1Exception {}

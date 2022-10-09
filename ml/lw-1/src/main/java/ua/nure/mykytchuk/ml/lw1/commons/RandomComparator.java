@@ -10,13 +10,18 @@ public class RandomComparator<T> implements Comparator<T> {
 
     @SuppressWarnings("all")
     @Override
-    public int compare(T o1, T o2) {
+    public int compare(
+            T o1,
+            T o2
+    ) {
         return random.nextInt(-1, 2);
     }
 
     @SuppressWarnings("all")
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(
+            Object obj
+    ) {
         return random.nextBoolean();
     }
 }

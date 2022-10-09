@@ -15,12 +15,16 @@ public class CsvSchemasContainer {
 
 
     @Autowired
-    public CsvSchemasContainer(@Value("${iris.column.separator}") char irisColumnSeparator) {
+    public CsvSchemasContainer(
+            @Value("${iris.column.separator}") char irisColumnSeparator
+    ) {
         this.irisColumnSeparator = irisColumnSeparator;
     }
 
 
-    public @NonNull CsvSchema getIrisCsvSchema(final @NonNull CsvMapper mapper) {
+    public @NonNull CsvSchema getIrisCsvSchema(
+            final @NonNull CsvMapper mapper
+    ) {
         return mapper.typedSchemaFor(Iris.class)
                 .withColumnSeparator(irisColumnSeparator)
                 .withoutHeader();
