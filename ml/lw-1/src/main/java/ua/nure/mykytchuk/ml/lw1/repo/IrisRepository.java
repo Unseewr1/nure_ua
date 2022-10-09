@@ -54,7 +54,14 @@ public class IrisRepository {
 
 
     public void sortRandomly() {
-        irises.sort(new RandomComparator<>());
+        while (true) {
+            try {
+                irises.sort(new RandomComparator<>());
+                return;
+            } catch (IllegalArgumentException ignored) {
+                //need to try sorting again
+            }
+        }
     }
 
     public void replaceIrisesClassesWithIds() {
