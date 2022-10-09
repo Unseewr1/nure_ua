@@ -1,0 +1,5 @@
+iris:
+  data:
+    filename: dataset/iris/iris.data
+  column:
+    separator: ','
