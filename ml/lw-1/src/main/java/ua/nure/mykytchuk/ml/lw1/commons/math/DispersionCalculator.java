@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class DispersionCalculator<E> {
 
@@ -19,14 +18,12 @@ public class DispersionCalculator<E> {
     private final List<Pair<String, Double>> results;
 
 
-    public static <E> DispersionCalculator<E> of(@NonNull Class<E> clazz, final @NonNull List<E> objects) {
-        return new DispersionCalculator<>(clazz, objects);
+    public static <E> DispersionCalculator<E> of(@NonNull Class<E> clazz, final @NonNull List<E> objects, final @NonNull Map<String, Double> populationMeans) {
+        return new DispersionCalculator<>(clazz, objects, populationMeans);
     }
 
 
-    private DispersionCalculator(@NonNull Class<E> clazz, final @NonNull List<E> objects) {
-        Map<String, Double> populationMeans = PopulationMeanCalculator.of(clazz, objects).getResults().stream()
-                .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
+    private DispersionCalculator(@NonNull Class<E> clazz, final @NonNull List<E> objects, final @NonNull Map<String, Double> populationMeans) {
         results = Arrays.stream(clazz.getDeclaredFields())
                 .filter(field -> ALLOWABLE_CLASSES.contains(field.getType()))
                 .map(field -> Pair.of(field.getName(), calculateDispersionByField(field, objects, populationMeans.get(field.getName()))))
