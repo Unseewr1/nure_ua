@@ -3,6 +3,7 @@ package ua.nure.mykytchuk.ml.lw1.repo;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,9 +24,9 @@ public class IrisRepository {
 
     private final String irisDataFilename;
 
-    private final CsvSchemasContainer csvSchemasContainer;
+    private final @NonNull CsvSchemasContainer csvSchemasContainer;
 
-    private final List<Iris> irises;
+    private final @NonNull List<Iris> irises;
 
 
     @Autowired
@@ -41,7 +42,7 @@ public class IrisRepository {
     }
 
 
-    public Iris getById(int id) {
+    public @NonNull Iris getById(int id) {
         try {
             return irises.get(id);
         } catch (IndexOutOfBoundsException e) {
@@ -71,7 +72,7 @@ public class IrisRepository {
     }
 
 
-    private MappingIterator<Iris> getIterator() throws IOException {
+    private @NonNull MappingIterator<Iris> getIterator() throws IOException {
         CsvMapper mapper = new CsvMapper();
         CsvSchema schema = csvSchemasContainer.getIrisCsvSchema(mapper);
         return mapper

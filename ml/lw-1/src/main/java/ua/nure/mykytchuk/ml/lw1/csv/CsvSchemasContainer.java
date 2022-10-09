@@ -20,7 +20,7 @@ public class CsvSchemasContainer {
     }
 
 
-    public CsvSchema getIrisCsvSchema(final @NonNull CsvMapper mapper) {
+    public @NonNull CsvSchema getIrisCsvSchema(final @NonNull CsvMapper mapper) {
         return mapper.typedSchemaFor(Iris.class)
                 .withColumnSeparator(irisColumnSeparator)
                 .withoutHeader();

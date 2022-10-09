@@ -1,5 +1,6 @@
 package ua.nure.mykytchuk.ml.lw1.commons.math;
 
+import lombok.NonNull;
 import ua.nure.mykytchuk.ml.lw1.exception.DoubleValueGetterException;
 
 import java.lang.reflect.Field;
@@ -7,7 +8,7 @@ import java.lang.reflect.Field;
 public interface DoubleCalculator {
 
     @SuppressWarnings("all")
-    static <E> double getDoubleValue(Field field, E object) {
+    static <E> double getDoubleValue(@NonNull Field field, E object) {
         boolean accessibility = field.isAccessible();
         try {
             field.setAccessible(true);
