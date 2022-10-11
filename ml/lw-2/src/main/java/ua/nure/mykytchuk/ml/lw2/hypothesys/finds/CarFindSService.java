@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ua.nure.mykytchuk.ml.lw2.dom.car.Car;
 import ua.nure.mykytchuk.ml.lw2.dom.car.CarClass;
+import ua.nure.mykytchuk.ml.lw2.exception.NotEnoughDataException;
 import ua.nure.mykytchuk.ml.lw2.hypothesys.CarHypothesisService;
 import ua.nure.mykytchuk.ml.lw2.repo.CarRepository;
 
@@ -25,6 +26,9 @@ public class CarFindSService implements CarHypothesisService {
 
     public @NonNull Car findSWithCarClass(@NonNull CarClass carClass) {
         List<Car> carsByCarClass = carRepository.findByCarClass(carClass);
+        if (carsByCarClass.isEmpty()) {
+            throw new NotEnoughDataException();
+        }
         Car hypothesisCar = carsByCarClass.get(SKIPPED_CARS_COUNT - 1);
         CarFindSer carFindSer = CarFindSer.of(hypothesisCar);
         log.info("total cars by class \"{}\": {}", carClass, carsByCarClass.size());

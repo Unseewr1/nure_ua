@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class CarCandidateEliminationService implements CarHypothesisService {
 
     private static final String LOG_FORMAT = "step {}: S: {}, G: [{}], current: {} {}";
+    private static final String RESULT_LOG_FORMAT = "result S: {}, G: [{}]";
 
     @NonNull
     private final CarRepository carRepository;
@@ -42,6 +43,12 @@ public class CarCandidateEliminationService implements CarHypothesisService {
                             (carCandidateEliminator.isPositive(car) ? "positive" : "negative"),
                             formatted(car));
                 });
+        log.info(
+                RESULT_LOG_FORMAT,
+                formatted(carCandidateEliminator.getSCar()),
+                carCandidateEliminator.getGSet().stream()
+                        .map(this::formatted)
+                        .collect(Collectors.joining(", ")));
     }
 }
 

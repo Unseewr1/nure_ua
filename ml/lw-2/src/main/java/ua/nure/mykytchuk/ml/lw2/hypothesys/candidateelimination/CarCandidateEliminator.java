@@ -40,55 +40,46 @@ public class CarCandidateEliminator {
         //if hypothesis is possible
         if (isPositive(car)) {
             CarFindSer.of(sCar).checkHypothesis(car);
+            updateGSet();
             return;
         }
-        if (sCar.getBuyingPrice() != car.getBuyingPrice()) {
+        if (sCar.getBuyingPrice().isKnown()
+                && (sCar.getBuyingPrice() != car.getBuyingPrice())) {
             Car gCar = new Car();
             gCar.setBuyingPrice(sCar.getBuyingPrice());
             gSet.add(gCar);
         }
-        if (sCar.getMaintenancePrice() != car.getMaintenancePrice()) {
+        if (sCar.getMaintenancePrice().isKnown()
+                && (sCar.getMaintenancePrice() != car.getMaintenancePrice())) {
             Car gCar = new Car();
             gCar.setMaintenancePrice(sCar.getMaintenancePrice());
             gSet.add(gCar);
         }
-        if (sCar.getDoorCount() != car.getDoorCount()) {
+        if (sCar.getDoorCount().isKnown()
+                && (sCar.getDoorCount() != car.getDoorCount())) {
             Car gCar = new Car();
             gCar.setDoorCount(sCar.getDoorCount());
             gSet.add(gCar);
         }
-        if (sCar.getPersonCount() != car.getPersonCount()) {
+        if (sCar.getPersonCount().isKnown()
+                && (sCar.getPersonCount() != car.getPersonCount())) {
             Car gCar = new Car();
             gCar.setPersonCount(sCar.getPersonCount());
             gSet.add(gCar);
         }
-        if (sCar.getLuggageBootSize() != car.getLuggageBootSize()) {
+        if (sCar.getLuggageBootSize().isKnown()
+                && (sCar.getLuggageBootSize() != car.getLuggageBootSize())) {
             Car gCar = new Car();
             gCar.setLuggageBootSize(sCar.getLuggageBootSize());
             gSet.add(gCar);
         }
-        if (sCar.getSafety() != car.getSafety()) {
+        if (sCar.getSafety().isKnown()
+                && (sCar.getSafety() != car.getSafety())) {
             Car gCar = new Car();
             gCar.setSafety(sCar.getSafety());
             gSet.add(gCar);
         }
         updateGSet();
-    }
-
-    private void updateGSet() {
-        gSet.removeIf(car -> correlatesTo(car, sCar));
-    }
-
-    private boolean correlatesTo(
-            @NonNull Car car,
-            @NonNull Car sCar
-    ) {
-        return (car.getBuyingPrice().correlatesTo(sCar.getBuyingPrice())
-                && car.getMaintenancePrice().correlatesTo(sCar.getMaintenancePrice())
-                && car.getDoorCount().correlatesTo(sCar.getDoorCount())
-                && car.getPersonCount().correlatesTo(sCar.getPersonCount())
-                && car.getLuggageBootSize().correlatesTo(sCar.getLuggageBootSize())
-                && car.getSafety().correlatesTo(sCar.getSafety()));
     }
 
     public boolean canChangeResult() {
@@ -102,5 +93,22 @@ public class CarCandidateEliminator {
 
     public boolean isPositive(@NonNull Car car) {
         return (sCar.getCarClass() == car.getCarClass());
+    }
+
+
+    private void updateGSet() {
+        gSet.removeIf(car -> !correlatesTo(car, sCar));
+    }
+
+    private boolean correlatesTo(
+            @NonNull Car car,
+            @NonNull Car sCar
+    ) {
+        return (car.getBuyingPrice().correlatesTo(sCar.getBuyingPrice())
+                && car.getMaintenancePrice().correlatesTo(sCar.getMaintenancePrice())
+                && car.getDoorCount().correlatesTo(sCar.getDoorCount())
+                && car.getPersonCount().correlatesTo(sCar.getPersonCount())
+                && car.getLuggageBootSize().correlatesTo(sCar.getLuggageBootSize())
+                && car.getSafety().correlatesTo(sCar.getSafety()));
     }
 }
