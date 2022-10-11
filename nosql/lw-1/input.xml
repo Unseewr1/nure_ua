@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<papers>
+    <book genre="хорор">
+        <name>Керрі</name>
+        <author>Стівен Кінг</author>
+        <year>1974</year>
+        <cost>195</cost>
+        <acceptance_age>16</acceptance_age>
+    </book>
+    <book genre="хорор">
+        <name>Кладовище домашніх тварин</name>
+        <author>Стівен Кінг</author>
+        <year>1983</year>
+        <cost>300</cost>
+        <acceptance_age>16</acceptance_age>
+    </book>
+    <book genre="пригоди">
+        <name>П'ятнадцятирічний капітан</name>
+        <author>Жуль Верн</author>
+        <year>1878</year>
+        <cost>250</cost>
+        <acceptance_age>12</acceptance_age>
+    </book>
+    <book genre="класика">
+        <name>Портрет Доріана Грея</name>
+        <author>Оскар Уайлд</author>
+        <year>1890</year>
+        <cost>350</cost>
+        <acceptance_age>16</acceptance_age>
+    </book>
+    <book genre="класика">
+        <name>Перевтілення</name>
+        <author>Франц Кафка</author>
+        <year>1912 </year>
+        <cost>200</cost>
+        <acceptance_age>16</acceptance_age>
+    </book>
+    <book genre="класика">
+        <name>Парфюмер</name>
+        <author>Патрік Зюскінд</author>
+        <year>1985</year>
+        <cost>400</cost>
+        <acceptance_age>16</acceptance_age>
+    </book>
+    <comix genre="психологічний трилер">
+        <name>Милий дім</name>
+        <author>Карнбі Кім</author>
+        <year>2017</year>
+        <chapters>140</chapters>
+        <cost>200</cost>
+    </comix>
+    <comix genre="психологічний трилер">
+        <name>Свинарник</name>
+        <author>Карнбі Кім</author>
+        <year>2019</year>
+        <chapters>67</chapters>
+        <cost>300</cost>
+        <acceptance_age>16</acceptance_age>
+    </comix>
+    <comix genre="пригоди">
+        <name>Створений в безодні</name>
+        <author>Акіхіто Цукусі</author>
+        <year>2012</year>
+        <chapters>63</chapters>
+        <cost>400</cost>
+        <acceptance_age>16</acceptance_age>
+    </comix>
+</papers>
