@@ -1,0 +1,9 @@
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss}[%-40logger{40}][%-5level] %msg%n"
+
+car:
+  data:
+    filename: dataset/car.data
+  column:
+    separator: ','
