@@ -1,6 +1,7 @@
 package ua.nure.mykytchuk.ml.lw2.hypothesys.finds;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import ua.nure.mykytchuk.ml.lw2.dom.car.Car;
@@ -14,10 +15,13 @@ import ua.nure.mykytchuk.ml.lw2.dom.car.tech.comfort.PersonCount;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class CarFindSer {
 
+    @Getter
     private final @NonNull Car hypothesisCar;
 
 
-    public static @NonNull CarFindSer of(@NonNull Car hypothesisCar) {
+    public static @NonNull CarFindSer of(
+            @NonNull Car hypothesisCar
+    ) {
         return new CarFindSer(hypothesisCar);
     }
 
@@ -31,7 +35,10 @@ public class CarFindSer {
                 || hypothesisCar.getSafety().isKnown());
     }
 
-    public @NonNull Car checkHypothesis(@NonNull Car car) {
+    public static @NonNull Car updateHypothesis(
+            @NonNull Car hypothesisCar,
+            @NonNull Car car
+    ) {
         if (hypothesisCar.getBuyingPrice() != car.getBuyingPrice()) {
             hypothesisCar.setBuyingPrice(BuyingPrice.UNKNOWN);
         }
@@ -51,6 +58,10 @@ public class CarFindSer {
             hypothesisCar.setSafety(Safety.UNKNOWN);
         }
         return hypothesisCar;
+    }
+
+    public @NonNull Car updateHypothesis(@NonNull Car car) {
+        return updateHypothesis(hypothesisCar, car);
     }
 }
 

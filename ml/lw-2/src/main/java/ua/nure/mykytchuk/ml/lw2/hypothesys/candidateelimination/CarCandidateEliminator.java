@@ -37,10 +37,8 @@ public class CarCandidateEliminator {
             sCar = car;
             return;
         }
-        //if hypothesis is possible
         if (isPositive(car)) {
-            CarFindSer.of(sCar).checkHypothesis(car);
-            updateGSet();
+            CarFindSer.updateHypothesis(sCar, car);
             return;
         }
         if (sCar.getBuyingPrice().isKnown()
