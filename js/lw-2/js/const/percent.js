@@ -1,5 +1,6 @@
 const MAXIMUM_PERCENT_VALUE = 100
 
+
 export {
     MAXIMUM_PERCENT_VALUE
 }

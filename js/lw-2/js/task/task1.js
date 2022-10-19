@@ -10,16 +10,6 @@ const ENTER_BATTERY_DEFECT_PERCENT_MESSAGE = "Введіть рівень шлю
 const VALIDATION_ERROR_MESSAGE = "Недійсні вхідні дані"
 
 
-function getValidDataMessage(batteryStorage) {
-    return (
-`Кількість батарей: ${batteryStorage.batteryCount}
-Рівень шлюбу: ${batteryStorage.batteryDefectPercent}%
-Кількість несправних акумуляторів: ${batteryStorage.getBadBatteryCount()}
-Кількість робочих батарей: ${batteryStorage.getGoodBatteryCount()}`
-    )
-}
-
-
 function readInputWithPrompt() {
     try {
         let batteryStorage = BatteryStorage.builder()
@@ -34,6 +24,15 @@ function readInputWithPrompt() {
             alert(VALIDATION_ERROR_MESSAGE)
         }
     }
+}
+
+function getValidDataMessage(batteryStorage) {
+    return (
+        `Кількість батарей: ${batteryStorage.batteryCount}
+Рівень шлюбу: ${batteryStorage.batteryDefectPercent}%
+Кількість несправних акумуляторів: ${batteryStorage.getBadBatteryCount()}
+Кількість робочих батарей: ${batteryStorage.getGoodBatteryCount()}`
+    )
 }
 
 

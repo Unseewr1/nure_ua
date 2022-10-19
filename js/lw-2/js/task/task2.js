@@ -11,20 +11,22 @@ const VALIDATION_ERROR_MESSAGE = "Неприпустиме значення"
 function runTask2() {
     try {
         let middlePart = MiddleGetter.getMiddle(prompt(ENTER_WORD_MESSAGE))
-        if (middlePart.length === 1) {
-            alert(middlePart)
-            return
-        }
-        if (middlePart[0] === middlePart[1]) {
-            alert(MIDDLE_SYMBOLS_EQUAL_MESSAGE)
-            return
-        }
-        alert(middlePart)
+        alert(getValidDataMessage(middlePart))
     } catch (e) {
         if (e instanceof ValidationError) {
             alert(VALIDATION_ERROR_MESSAGE)
         }
     }
+}
+
+function getValidDataMessage(middlePart) {
+    if (middlePart.length === 1) {
+        return middlePart
+    }
+    if (middlePart[0] === middlePart[1]) {
+        return MIDDLE_SYMBOLS_EQUAL_MESSAGE
+    }
+    return middlePart
 }
 
 

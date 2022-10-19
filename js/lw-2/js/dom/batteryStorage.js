@@ -1,6 +1,6 @@
 import {Validation} from "../util/validation.js"
 import {ValidationError} from "../exception/validationError.js"
-import {Convert} from "../util/convert.js";
+import {Convert} from "../util/convert.js"
 
 const MAX_COUNT_PRECISION = 2
 
