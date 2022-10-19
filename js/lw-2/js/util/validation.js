@@ -1,5 +1,6 @@
 import {MAXIMUM_PERCENT_VALUE} from "../const/percent.js"
 
+
 const MINIMUM_NON_NEGATIVE_VALUE = 0
 
 
