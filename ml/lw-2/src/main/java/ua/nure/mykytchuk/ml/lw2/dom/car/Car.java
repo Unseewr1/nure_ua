@@ -56,4 +56,13 @@ public class Car {
         luggageBootSize = LuggageBootSize.UNKNOWN;
         safety = Safety.UNKNOWN;
     }
+
+    public boolean hasAnyKnownField() {
+        return (buyingPrice.isKnown()
+                || maintenancePrice.isKnown()
+                || doorCount.isKnown()
+                || personCount.isKnown()
+                || luggageBootSize.isKnown()
+                || safety.isKnown());
+    }
 }

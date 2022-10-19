@@ -1,9 +1,16 @@
 logging:
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss}[%-40logger{40}][%-5level] %msg%n"
+    console: "%msg%n"
 
 car:
   data:
     filename: dataset/car.data
   column:
     separator: ','
+  log:
+    format:
+      find_s: "step {}: {} && {} -> {}"
+      candidate_elimination:
+        with_steps: "step {}: S: {}, G: [{}], current: {} {}"
+        with_version: "S{}: {}, G{}: [{}] + {} {}"
+      result: "result S: {}, G: [{}]"

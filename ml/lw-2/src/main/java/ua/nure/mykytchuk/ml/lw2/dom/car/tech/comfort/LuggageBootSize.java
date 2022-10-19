@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import ua.nure.mykytchuk.ml.lw2.dom.car.price.BuyingPrice;
 
 @RequiredArgsConstructor
 @Getter(onMethod = @__(@JsonValue))

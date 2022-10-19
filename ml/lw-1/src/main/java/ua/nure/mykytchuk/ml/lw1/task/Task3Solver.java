@@ -32,7 +32,7 @@ public class Task3Solver implements TaskSolver {
         List<Pair<String, Double>> populationMeans = PopulationMeanCalculator.of(Iris.class, irises).getResults();
         populationMeans.stream()
                 .map(pair -> "%s: %f".formatted(pair.getKey(), pair.getValue()))
-                .forEach(fieldAndValue -> log.info("Математичне очікування поля " + fieldAndValue));
+                .forEach(fieldAndValue -> log.info("Математичне очікування поля {}", fieldAndValue));
         Map<String, Double> populationMeansMap = populationMeans.stream()
                 .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
         DispersionCalculator.of(Iris.class, irises, populationMeansMap).getResults().stream()
