@@ -4,7 +4,10 @@ const BRITAIN_POSTCODE_REGEX = /^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABE
 
 const isPasswordValid = (str) => str.match(PASSWORD_REGEX) != null
 
-const countVowels = (str) => str.match(VOWEL_COUNT_REGEX).length
+const countVowels = (str) => {
+    const matches = str.match(VOWEL_COUNT_REGEX)
+    return matches ? matches.length : 0
+}
 
 const isPostCodeValid = (str) => str.match(BRITAIN_POSTCODE_REGEX) != null
 
