@@ -14,5 +14,5 @@ const isPostCodeValid = (str) => str.match(BRITAIN_POSTCODE_REGEX) != null
 export {
     isPasswordValid,
     countVowels,
-    isPostCodeValid
+    isPostCodeValid,
 }

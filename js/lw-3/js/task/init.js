@@ -20,10 +20,11 @@ const CLASS_FUNCTION_MAP = [
 
 CLASS_FUNCTION_MAP.forEach((buttonClassToFunction) => {
     const [buttonClass, inputId, _function] = [buttonClassToFunction.buttonClass, buttonClassToFunction.inputId, buttonClassToFunction._function]
+    const input = document.getElementById(inputId)
     Array.from(document.getElementsByClassName(buttonClass))
         .forEach((button) => {
         button.addEventListener('click', () => {
-            alert(_function(document.getElementById(inputId).value))
+            alert(_function(input.value))
         })
     })
 })
