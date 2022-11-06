@@ -1,6 +1,7 @@
 const PASSWORD_REGEX = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&'*+\-/=?^_`{|}~])(?=.+\..+)(?!.*\.$)(?!^\.)(?!.*\.\..*)/
 const VOWEL_COUNT_REGEX = /[aeiou]/ig
-const BRITAIN_POSTCODE_REGEX = /^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)$/
+//https://postal-code.co.uk/
+const BRITAIN_POSTCODE_REGEX = /^[A-Z]{1,2}\d{1,2} \d[A-Z]{2}$/
 
 const isPasswordValid = (str) => str.match(PASSWORD_REGEX) != null
 
